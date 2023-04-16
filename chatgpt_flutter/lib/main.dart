@@ -17,6 +17,7 @@ void main() async {
 }
 
 Future<void> _initializeFirebase({bool withEmulator = true}) async {
+  // TODO: follow this page to setup Firebase for your project https://firebase.google.com/docs/flutter/setup
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   if (withEmulator) {
     FirebaseFunctions.instance.useFunctionsEmulator('127.0.0.1', 5001);
