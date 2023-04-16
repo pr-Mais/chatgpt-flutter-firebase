@@ -14,23 +14,32 @@ const openai = new OpenAIApi(configuration);
 
 export const replyFromChatGPT = functions.firestore
 	.document("messages/{messageId}")
-	.onCreate(async (snap, context) => {
+	.onCreate(async (snap) => {
 		try {
-			const { text, role, timestamp } = snap.data() as ChatMessage;
+			const { text, role } = snap.data() as ChatMessage;
 
 			if (snap.data()?.role === Role.ASSISTANT) return;
 
-			const response = await openai.createChatCompletion(
-				{
-					model: "gpt-4",
-					messages: [
-						{ content: "You're a helpful assistant", role: "system" },
-						{ content: text, role: "user" },
-						{ content: "Hello, how are you?", role: Role.ASSISTANT },
-					],
-				},
-				{}
-			);
+			const history = await admin
+				.firestore()
+				.collection("messages")
+				.orderBy("timestamp")
+				.limitToLast(5)
+				.get();
+
+			const historyMapped = history.docs.map((doc) => {
+				const { text, role } = doc.data() as ChatMessage;
+
+				return {
+					content: text,
+					role,
+				};
+			});
+
+			const response = await openai.createChatCompletion({
+				model: "gpt-4",
+				messages: [...historyMapped, { content: text, role }],
+			});
 
 			console.log("Response: ", response.data.choices[0].message);
 
@@ -41,11 +50,6 @@ export const replyFromChatGPT = functions.firestore
 			});
 		} catch (error) {
 			console.error((error as AxiosError).response?.data);
-			if (error instanceof AxiosError) {
-				console.error((error as AxiosError).response?.data);
-			} else {
-				//console.error(error);
-			}
 		}
 	});
 
