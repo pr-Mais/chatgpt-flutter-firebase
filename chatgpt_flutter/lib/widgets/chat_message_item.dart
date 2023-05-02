@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../data/chat_message.dart';
 
+
 class ChatMessageItem extends StatelessWidget {
   const ChatMessageItem({super.key, required this.message});
 

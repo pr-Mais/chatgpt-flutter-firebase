@@ -11,7 +11,9 @@ class ChatHeader extends StatelessWidget {
           image: AssetImage('assets/gradient.png'),
           fit: BoxFit.cover,
         ),
-        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(20)),
+        borderRadius: const BorderRadius.vertical(
+          bottom: Radius.circular(20),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -35,7 +37,7 @@ class ChatHeader extends StatelessWidget {
             height: 50,
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: Colors.grey.shade200,
               border: Border.all(color: Colors.white),
               shape: BoxShape.circle,
             ),

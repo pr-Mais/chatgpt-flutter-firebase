@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>144536982590-d6bee84vp5aevejkou3o5d2pagv00drk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144536982590-d6bee84vp5aevejkou3o5d2pagv00drk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC579rxMCElYq_LYCgNzB29DUOA_AWvqVM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144536982590</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ahmedalhelali.ali.chatgptFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>chatgpt-flutter-firebase-ahmed</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatgpt-flutter-firebase-ahmed.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144536982590:ios:95eeae6686d4b05ce9ad6f</string>
+</dict>
+</plist>

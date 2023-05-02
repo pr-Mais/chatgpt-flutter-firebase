@@ -118,7 +118,7 @@ class __$$_ChatMessageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChatMessage implements _ChatMessage {
+class _$_ChatMessage with DiagnosticableTreeMixin implements _ChatMessage {
   const _$_ChatMessage(
       {required this.text, required this.role, required this.timestamp});
 
@@ -133,8 +133,18 @@ class _$_ChatMessage implements _ChatMessage {
   final DateTime timestamp;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatMessage(text: $text, role: $role, timestamp: $timestamp)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatMessage'))
+      ..add(DiagnosticsProperty('text', text))
+      ..add(DiagnosticsProperty('role', role))
+      ..add(DiagnosticsProperty('timestamp', timestamp));
   }
 
   @override
