@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chatgpt_flutter">
+    package="com.ahmedalhelali.ali.chatgpt_flutter">
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
    <application
         android:label="chatgpt_flutter"
         android:name="${applicationName}"

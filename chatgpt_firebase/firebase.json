@@ -7,6 +7,7 @@
     {
       "source": "functions",
       "codebase": "default",
+      "runtime": "nodejs18",
       "ignore": [
         "node_modules",
         ".git",
@@ -29,6 +30,12 @@
     "ui": {
       "enabled": true
     },
-    "singleProjectMode": true
+    "singleProjectMode": true,
+    "storage": {
+      "port": 4501
+    }
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

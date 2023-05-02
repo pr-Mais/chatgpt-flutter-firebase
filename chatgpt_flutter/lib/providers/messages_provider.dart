@@ -1,7 +1,7 @@
+import 'package:chatgpt_flutter/data/chat_message.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/chat_message.dart';
 import '../services/database_service.dart';
 
 final dbServiceProvider = Provider<DatabaseService>((ref) {
@@ -9,12 +9,12 @@ final dbServiceProvider = Provider<DatabaseService>((ref) {
 });
 
 final messagesStreamProvider =
-    StreamProvider<List<QueryDocumentSnapshot<ChatMessage>>>((ref) {
+StreamProvider<List<QueryDocumentSnapshot<ChatMessage>>>((ref) {
   return ref.watch(dbServiceProvider).streamMessages();
 });
 
 final messagesProvider =
-    NotifierProvider<MessagesProvider, List<ChatMessage>>(() {
+NotifierProvider<MessagesProvider, List<ChatMessage>>(() {
   return MessagesProvider();
 });
 
@@ -22,8 +22,8 @@ class MessagesProvider extends Notifier<List<ChatMessage>> {
   @override
   List<ChatMessage> build() {
     final messages = ref.watch(messagesStreamProvider).mapOrNull(
-              data: (data) => data.value,
-            ) ??
+      data: (data) => data.value,
+    ) ??
         [];
 
     return messages.map((e) => e.data()).toList();
